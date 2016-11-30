@@ -3,22 +3,27 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.HasCapabilities;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 /**
  * Created by polis on 19.11.2016.
  */
-public class LitecartAdminLogin {
-
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class LitecartAdminLogin extends TestBase {
 
     @Before
     public void start(){
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("start-fullscreen");
+        driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, 10);
     }
 
@@ -28,7 +33,7 @@ public class LitecartAdminLogin {
         driver.findElement(By.name("username")).sendKeys("admin");
         driver.findElement(By.name("password")).sendKeys("admin");
         driver.findElement(By.name("login")).click();
-        driver.findElement(By.className("logotype")).click();
+        driver.findElement(By.xpath("//div[@class='logotype']")).click();
     }
 
     @After

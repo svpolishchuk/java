@@ -19,7 +19,7 @@ public class MyFirstTest {
 
     @Before
     public void start(){
-        System.setProperty("webdriver.chrome.driver", "C:\\QASeleniumJava\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "C:\\QASeleniumJava\\chromedriver.exe");
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 10);
     }
