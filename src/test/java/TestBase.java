@@ -45,7 +45,10 @@ public class TestBase {
     }
 
     boolean areElementsPresent(WebDriver driver, By locator) {
-        return driver.findElements(locator).size() > 0;
+     if (driver.findElements(locator).size() == 1) {
+         return true;
+     }
+     else return false;
     }
 
     public boolean equals(List<String> menu, List <WebElement> fromPage){

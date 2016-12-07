@@ -1,5 +1,9 @@
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
@@ -16,6 +20,9 @@ public class LitecartAdminLeftPanel extends TestBase {
         driver.findElement(By.name("password")).sendKeys("admin");
         driver.findElement(By.name("login")).click();
         wait.until(titleIs("My Store"));
+
+        AnotherInterpritation();
+/*
 
         driver.findElement(By.xpath("//span[.='Appearence']")).click();
         wait.until(titleIs("Template | My Store"));
@@ -124,7 +131,6 @@ public class LitecartAdminLeftPanel extends TestBase {
         driver.findElement(By.xpath("//li/a/span[.='Security']")).click();
         wait.until(titleIs("Settings | My Store"));
 
-
         driver.findElement(By.xpath("//span[2][.='Slides']")).click();
         wait.until(titleIs("Slides | My Store"));
 
@@ -151,7 +157,24 @@ public class LitecartAdminLeftPanel extends TestBase {
         wait.until(titleIs("vQmods | My Store"));
         driver.findElement(By.xpath("//span[1][.='vQmods']")).click();
         wait.until(titleIs("vQmods | My Store"));
+*/
     }
 
+    public void AnotherInterpritation() {
+        List<WebElement> items = driver.findElements(By.id("app-"));
+        //go through all item
+        for  (int i = 0; i < items.size(); i++) {
+            List<WebElement> itemsNew = driver.findElements(By.id("app-"));
+            itemsNew.get(i).click();
+            Assert.assertTrue("Header is visible", isElementPresent(driver, By.xpath(("//h1"))));
 
+            //go through all subitems
+            List<WebElement> subItems = driver.findElements((By.xpath(("//ul[@class='docs']//a"))));
+            for (int j = 0; j < subItems.size(); j++) {
+                List<WebElement> subItemsNew = driver.findElements((By.xpath(("//ul[@class='docs']//a"))));
+                subItemsNew.get(j).click();
+                Assert.assertTrue("Page Header is visible", isElementPresent(driver, By.xpath(("//h1"))));
+            }
+        }
+    }
 }
