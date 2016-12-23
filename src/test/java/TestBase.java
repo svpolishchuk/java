@@ -161,6 +161,39 @@ public class TestBase {
         clearField(driver, locator);
         sendKeys(driver, locator, text);
     }
+    public static String getElementColor(final WebDriver driver, final By locator) {
+
+        return getElement(driver, locator).getCssValue("color");
+
+    }
+
+    public static String getElementColor(final WebElement element, final By locator) {
+        return getElement(element, locator).getCssValue("color");
+    }
+
+    public static String getElementFontSize(final WebDriver driver, final By locator) {
+        return getElement(driver, locator).getCssValue("font-size");
+    }
+
+    public static String getElementFontSize(final WebElement element, final By locator) {
+        return getElement(element, locator).getCssValue("font-size");
+    }
+
+    public static String getElementFontWeight(final WebDriver driver, final By locator) {
+        return getElement(driver, locator).getCssValue("font-weight");
+    }
+
+    public static String getElementFontWeight(final WebElement element, final By locator) {
+        return getElement(element, locator).getCssValue("font-weight");
+    }
+
+    public static String getElementTextDecoration(final WebDriver driver, final By locator) {
+        return getElement(driver, locator).getCssValue("text-decoration");
+    }
+
+    public static String getElementTextDecoration(final WebElement element, final By locator) {
+        return getElement(element, locator).getCssValue("text-decoration");
+    }
 
     public static boolean titleIsPresent(final WebDriverWait wait, final String title) {
         return wait.until(titleIs(title));
