@@ -1,16 +1,16 @@
 import org.junit.After;
 import org.junit.Before;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import static org.testng.Assert.assertTrue;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 /**
  * Created by polis on 29.11.2016.
@@ -35,13 +35,11 @@ public class TestBase {
                 new Thread (() -> {driver.quit(); driver = null; }));
     }
 
-    boolean isElementPresent(WebDriver driver, By locator) {
-        try {
-            driver.findElement(locator);
-            return true;
-        } catch (NoSuchElementException ex) {
-            return false;
-        }
+    public void login(){
+        driver.findElement(By.name("username")).sendKeys("admin");
+        driver.findElement(By.name("password")).sendKeys("admin");
+        driver.findElement(By.name("login")).click();
+        wait.until(titleIs("My Store"));
     }
 
     boolean areElementsPresent(WebDriver driver, By locator) {
@@ -57,6 +55,123 @@ public class TestBase {
             if(!fromPage.contains(el))return false;
         }
         return true;
+    }
+
+    public static WebElement getElement(final WebDriver driver, final By locator) {
+        return driver.findElement(locator);
+    }
+
+    public static WebElement getElement(final WebElement element, final By locator) {
+        return element.findElement(locator);
+    }
+
+
+    public static WebElement getElementByIndex(final WebDriver driver, final By locator, int index) {
+        return driver.findElements(locator).get(index);
+    }
+
+    public static WebElement getElementByIndex(final WebElement element, final By locator, int index) {
+        return element.findElements(locator).get(index);
+    }
+
+
+    public static List<WebElement> getElements(final WebDriver driver, final By locator) {
+        return driver.findElements(locator);
+    }
+
+    public static List<WebElement> getElements(final WebElement element, final By locator) {
+        return element.findElements(locator);
+    }
+
+
+    public static int getCountElements(final WebDriver driver, final By locator) {
+        return driver.findElements(locator).size();
+    }
+
+    public static int getCountElements(final WebElement element, final By locator) {
+        return element.findElements(locator).size();
+    }
+
+
+    public static void click(final WebDriver driver, final By locator) {
+        getElement(driver, locator).click();
+    }
+
+    public static void click(final WebElement element, final By locator) {
+        getElement(element, locator).click();
+    }
+
+
+    public static boolean isElementsPresent(final WebDriver driver, final By locator) {
+        try {
+            return getElements(driver, locator).size() > 0;
+        } catch (InvalidSelectorException ex) {
+            return false;
+        }
+    }
+
+    public static boolean isElementsPresent(final WebElement element, final By locator) {
+        try {
+            return getElements(element, locator).size() > 0;
+        } catch (InvalidSelectorException ex) {
+            return false;
+        }
+    }
+
+    public static boolean isElementPresent(final WebDriver driver, final By locator) {
+        try {
+            getElement(driver, locator);
+            return true;
+        } catch (InvalidSelectorException ex) {
+            throw ex;
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
+    }
+
+    public static boolean isElementPresent(final WebElement element, final By locator) {
+        try {
+            getElement(element, locator);
+            return true;
+        } catch (InvalidSelectorException ex) {
+            throw ex;
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
+    }
+
+    public static String getText(final WebDriver driver, final By locator) {
+        return getElement(driver, locator).getText();
+    }
+
+    public static String getText(final WebElement element, final By locator) {
+        return getElement(element, locator).getText();
+    }
+
+    public static String getAttribute(final WebDriver driver, final By locator, final String attribute) {
+        return getElement(driver, locator).getAttribute(attribute);
+    }
+
+    public static String getAttribute(final WebElement element, final By locator, final String attribute) {
+        return getElement(element, locator).getAttribute(attribute);
+    }
+
+    public static void typeText(final WebDriver driver, final By locator, final String text) {
+        click(driver, locator);
+        clearField(driver, locator);
+        sendKeys(driver, locator, text);
+    }
+
+    public static boolean titleIsPresent(final WebDriverWait wait, final String title) {
+        return wait.until(titleIs(title));
+    }
+
+    public static void sendKeys(final WebDriver driver, final By locator, final CharSequence... value) {
+        getElement(driver, locator).sendKeys(value);
+    }
+
+    public static void clearField(final WebDriver driver, final By locator) {
+        getElement(driver, locator).clear();
     }
 
     @After
