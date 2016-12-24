@@ -3,6 +3,7 @@ import org.junit.Before;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.testng.Assert.assertTrue;
@@ -204,6 +205,32 @@ public class TestBase {
     public static void clearField(final WebDriver driver, final By locator) {
         getElement(driver, locator).clear();
     }
+
+    public static boolean isChecked(final WebDriver driver, final By locator) {
+        return Boolean.parseBoolean(getAttribute(driver, locator, "checked"));
+    }
+
+    public static boolean isChecked(final WebElement element, final By locator) {
+        return Boolean.parseBoolean(getAttribute(element, locator, "checked"));
+    }
+    public static boolean waitElementPresent(final WebDriver driver, final By locator, final WebDriverWait wait) {
+        try {
+            wait.until(ExpectedConditions.visibilityOf(getElement(driver, locator)));
+            return true;
+        } catch (TimeoutException ex) {
+            return false;
+        }
+    }
+
+    public static boolean waitElementPresent(final WebElement element, final By locator, final WebDriverWait wait) {
+        try {
+            wait.until(ExpectedConditions.visibilityOf(getElement(element, locator)));
+            return true;
+        } catch (TimeoutException ex) {
+            return false;
+        }
+    }
+
 
     @After
     public void stop() {

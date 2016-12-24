@@ -6,6 +6,7 @@ package maps;
 import org.openqa.selenium.By;
 
 public enum HomePage {
+    HOME_LINK("", "i.fa.fa-home[title=Home]", TypeLocator.CSS),
     IMAGE_WRAPPER("", "div.image-wrapper", TypeLocator.CSS),
     STICKER("", "div.sticker", TypeLocator.CSS);
 

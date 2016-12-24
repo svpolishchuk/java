@@ -6,6 +6,6 @@ package maps;
 public enum TypeLocator {
 
     XPATH,
+    LINK,
     CSS;
-
 }

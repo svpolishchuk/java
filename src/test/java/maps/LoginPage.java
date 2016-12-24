@@ -6,10 +6,10 @@ package maps;
 import org.openqa.selenium.By;
 
 public enum LoginPage {
-    LOGIN_PAGE_ANCHOR("", "[name=login_form]", TypeLocator.CSS),
+    LOGIN_PAGE_FORM("", "[name=login_form]", TypeLocator.CSS),
     USERNAME("", "input[name=username]", TypeLocator.CSS),
     PASSWORD("", "input[name=password]", TypeLocator.CSS),
-    LOGIN_BTN("", "button[name=login]", TypeLocator.CSS);
+    LOGIN_BUTTON("", "button[name=login]", TypeLocator.CSS);
 
     private final String text;
     private final String path;
