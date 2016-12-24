@@ -12,15 +12,15 @@ import static maps.CompaingProductPage.COM_PRODUCT_CAM_PRICE;
 import static maps.ProductPage.PRODUCT_CAM_PRICE;
 import static maps.ProductPage.PRODUCT_NAME;
 import static maps.ProductPage.PRODUCT_REG_PRICE;
-import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 
 /**
  * Created by polis on 23.12.2016.
  */
 public class OpensTheCorrectProductPage extends TestBase {
+
     @Test
-    public void operationYellowDuck() {
+    public void OperationYellowDuck() {
         driver.get("http://localhost/litecart/en/");
         assertTrue(isElementPresent(driver, COM_PRODUCT_LIST.by()));
         int countProduct = getCountElements(driver, COM_PRODUCT_LIST.by());
@@ -35,44 +35,35 @@ public class OpensTheCorrectProductPage extends TestBase {
             name1 = getAttribute(product, COM_PRODUCT_NAME.by(), "textContent");
             regPrice1 = getAttribute(product, COM_PRODUCT_REG_PRICE.by(), "textContent");
 
-            assertEquals(getElementColor(product, COM_PRODUCT_REG_PRICE.by()),
-                    "rgba(119, 119, 119, 1)", "");
-            assertEquals(getElementFontSize(product, COM_PRODUCT_REG_PRICE.by()),
-                    "14.4px", "");
-            assertEquals(getElementTextDecoration(product, COM_PRODUCT_REG_PRICE.by()),
-                    "line-through");
+            assertEquals("rgba(119, 119, 119, 1)",getElementColor(driver, COM_PRODUCT_REG_PRICE.by()));
+            assertEquals("14.4px", getElementFontSize(product, COM_PRODUCT_REG_PRICE.by()));
+            assertEquals("line-through",getElementTextDecoration(product, COM_PRODUCT_REG_PRICE.by()));
 
             camPrice1 = getAttribute(product, COM_PRODUCT_CAM_PRICE.by(), "textContent");
 
-            assertEquals(getElementColor(product, COM_PRODUCT_CAM_PRICE.by()),
-                    "rgba(204, 0, 0, 1)", "");
-            assertEquals(getElementFontSize(product, COM_PRODUCT_CAM_PRICE.by()),
-                    "18px", "");
-            assertEquals(getElementFontWeight(product, COM_PRODUCT_CAM_PRICE.by()),
-                    "bold");
+            assertEquals("rgba(204, 0, 0, 1)", getElementColor(driver, COM_PRODUCT_CAM_PRICE.by()));
+            assertEquals("18px", getElementFontSize(product, COM_PRODUCT_CAM_PRICE.by()));
+            assertEquals("bold", getElementFontWeight(product, COM_PRODUCT_CAM_PRICE.by()));
 
             click(product, COM_PRODUCT_HREF.by());
 
             assertTrue(isElementPresent(driver, PRODUCT_NAME.by()));
             name2 = getAttribute(driver, PRODUCT_NAME.by(), "textContent");
             regPrice2 = getAttribute(driver, PRODUCT_REG_PRICE.by(), "textContent");
-            assertEquals(getElementColor(driver, PRODUCT_REG_PRICE.by()),
-                    "rgba(102, 102, 102, 1)", "PRODUCT_REG_PRICE color is nod GREY");
-            assertEquals(getElementFontSize(driver, PRODUCT_REG_PRICE.by()),
-                    "16px", "PRODUCT_REG_PRICE font size is not 16px");
-            assertEquals(getElementTextDecoration(driver, PRODUCT_REG_PRICE.by()),
-                    "line-through", "PRODUCT_REG_PRICE isn't line-through");
+
+            assertEquals("PRODUCT_REG_PRICE color is nod GREY", "rgba(102, 102, 102, 1)",getElementColor(driver, PRODUCT_REG_PRICE.by()));
+            assertEquals("PRODUCT_REG_PRICE font size is not 16px","16px", getElementFontSize(driver, PRODUCT_REG_PRICE.by()));
+            assertEquals("PRODUCT_REG_PRICE isn't line-through","line-through", getElementTextDecoration(driver, PRODUCT_REG_PRICE.by()));
 
             camPrice2 = getAttribute(driver, PRODUCT_CAM_PRICE.by(), "textContent");
-            assertEquals(getElementColor(driver, PRODUCT_CAM_PRICE.by()),
-                    "rgba(204, 0, 0, 1)", "PRODUCT_CAM_PRICE color is not RED");
-            assertEquals(getElementFontSize(driver, PRODUCT_CAM_PRICE.by()),
-                    "22px", "PRODUCT_CAM_PRICE font size is not 22px");
-            assertEquals(getElementFontWeight(driver, PRODUCT_CAM_PRICE.by()),
-                    "bold", "PRODUCT_CAM_PRICE is not BOLD");
-            assertEquals(name1, name2, "Product name is not equals");
-            assertEquals(regPrice1, regPrice2, "Regular price is not equals");
-            assertEquals(camPrice1, camPrice2, "Campaing price is not equals");
+
+            assertEquals( "PRODUCT_CAM_PRICE color is not RED","rgba(204, 0, 0, 1)",getElementColor(driver, PRODUCT_CAM_PRICE.by()));
+            assertEquals( "PRODUCT_CAM_PRICE font size is not 22px","22px",getElementFontSize(driver, PRODUCT_CAM_PRICE.by()));
+            assertEquals("PRODUCT_CAM_PRICE is not BOLD","bold", getElementFontWeight(driver, PRODUCT_CAM_PRICE.by()));
+
+            assertEquals("Product name is not equals",name1, name2 );
+            assertEquals("Regular price is not equals",regPrice1, regPrice2 );
+            assertEquals("Campaing price is not equals",camPrice1, camPrice2 );
 
             System.out.println(name1 + " <===> " + name2);
             System.out.println(regPrice1 + " <===> " + regPrice2);

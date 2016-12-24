@@ -162,9 +162,7 @@ public class TestBase {
         sendKeys(driver, locator, text);
     }
     public static String getElementColor(final WebDriver driver, final By locator) {
-
         return getElement(driver, locator).getCssValue("color");
-
     }
 
     public static String getElementColor(final WebElement element, final By locator) {
