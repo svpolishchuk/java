@@ -35,6 +35,10 @@ public class ProductPage extends PageObject {
         click(driver, PRODUCT_ADD_TO_CART_BTN.by());
     }
 
+    public void addToCartProduct() {
+    click(driver, PRODUCT_ADD_TO_CART_BTN.by());
+}
+
     public boolean waitChangeCountInCart() {
         int count = Integer.parseInt(getAttribute(driver, COUNT_ITEMS_INTO_CART.by(), "textContent")) + 1;
         return waitTextToPresentInElement(COUNT_ITEMS_INTO_CART.by(), wait, ""+count);
