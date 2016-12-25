@@ -246,6 +246,28 @@ public class TestBase {
         }
     }
 
+    public static boolean waitElementStaleness(final WebDriver driver, final By locator, final WebDriverWait wait) {
+        try {
+            wait.until(ExpectedConditions.stalenessOf(getElement(driver, locator)));
+            return true;
+        } catch (TimeoutException ex) {
+            return false;
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
+    }
+
+    public static boolean waitElementStaleness(final WebElement element, final By locator, final WebDriverWait wait) {
+        try {
+            wait.until(ExpectedConditions.stalenessOf(getElement(element, locator)));
+            return true;
+        } catch (TimeoutException ex) {
+            return false;
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
+    }
+
     @After
     public void stop() {
         driver.quit();

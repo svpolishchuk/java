@@ -213,7 +213,7 @@ public class TestBase {
         return Boolean.parseBoolean(getAttribute(driver, locator, "checked"));
     }
 
-    public static boolean isChecked(final WebElement element) {
+    public static boolean isChecked(final WebElement element,final By locator) {
         return Boolean.parseBoolean(getAttribute(element, locator, "checked"));
     }
     public static boolean waitElementPresent(final WebDriver driver, final By locator, final WebDriverWait wait) {
@@ -256,6 +256,38 @@ public class TestBase {
             }
         }
         return false;
+    }
+    public static boolean waitElementStaleness(final WebDriver driver, final By locator, final WebDriverWait wait) {
+        try {
+            wait.until(ExpectedConditions.stalenessOf(getElement(driver, locator)));
+            return true;
+        } catch (TimeoutException ex) {
+            return false;
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
+    }
+
+    public static boolean waitElementStaleness(final WebElement element, final By locator, final WebDriverWait wait) {
+        try {
+            wait.until(ExpectedConditions.stalenessOf(getElement(element, locator)));
+            return true;
+        } catch (TimeoutException ex) {
+            return false;
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
+    }
+
+    public static boolean waitTextToPresentInElement(final By locator, final WebDriverWait wait, final String text) {
+        try {
+            wait.until(ExpectedConditions.attributeToBe(locator, "textContent", text));
+            return true;
+        } catch (TimeoutException ex) {
+            return false;
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
     }
 
     @After
