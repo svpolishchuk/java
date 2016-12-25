@@ -41,6 +41,7 @@ public class ProductCart extends TestBase {
         CartPageObject cart = new CartPageObject(driver, wait);
 
         header.checkout();
+        cart.deleteAllProducts();
 
         assertTrue(cart.pageIsPresent());
         assertTrue(cart.deleteAllProducts());
