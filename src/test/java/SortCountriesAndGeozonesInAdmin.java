@@ -6,13 +6,7 @@ import org.openqa.selenium.WebElement;
 import javax.management.ObjectName;
 import java.util.*;
 
-import static maps.CountriesPage.COUNTRIE_ROWS;
-import static maps.CountriesPage.COUNTRIE_HREF;
-import static maps.CountriesPage.COUNTRIE_ZONE;
-import static maps.CountriesPage.ZONE_PAGE_TITLE;
-import static maps.CountriesPage.ZONE_ROWS;
-import static maps.CountriesPage.ZONE_NAME;
-import static maps.CountriesPage.ZONE_CANCEL_BTN;
+import static maps.CountriesPage.*;
 
 import java.util.ArrayList;
 import java.util.TreeSet;

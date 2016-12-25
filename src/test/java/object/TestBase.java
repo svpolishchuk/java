@@ -3,14 +3,19 @@ package object;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.*;
+import org.openqa.selenium.InvalidSelectorException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.ExpectedConditions.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.testng.Assert.assertTrue;
 
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
@@ -286,6 +291,15 @@ public class TestBase {
         } catch (TimeoutException ex) {
             return false;
         } catch (NoSuchElementException ex) {
+            return false;
+        }
+    }
+
+    public static boolean waitTitlePagePresent(final WebDriver driver, final WebDriverWait wait, final String title) {
+        try {
+            wait.until(ExpectedConditions.titleIs(title));
+            return true;
+        } catch (TimeoutException ex) {
             return false;
         }
     }

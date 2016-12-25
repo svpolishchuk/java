@@ -12,6 +12,7 @@ import static maps.AddNewProductPage.*;
 import static org.testng.Assert.assertTrue;
 
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
@@ -267,6 +268,18 @@ public class TestBase {
             return false;
         }
     }
+
+    public static boolean waitNewWindowPresent(final WebDriver driver, final WebDriverWait wait,
+                                               final Set<String> oldWindowId) {
+        try {
+            wait.until(ExpectedConditionsHelper.presentNewWindow(driver, oldWindowId));
+            return true;
+        } catch (TimeoutException ex) {
+            return false;
+        }
+    }
+
+
 
     @After
     public void stop() {

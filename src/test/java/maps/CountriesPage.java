@@ -7,7 +7,11 @@ import org.openqa.selenium.By;
 
 public enum CountriesPage {
 
-    COUNTRIE_PAGE_TITLE("Countries | My Store", "", null),
+    COUNTRIE_PAGE_TITLE("Countries", "td#content > h1", TypeLocator.CSS),
+    COUNTRIES_PAGE_TITLE("Countries", "td#content > h1", TypeLocator.CSS),
+    COUNTRIES_ROWS("",".dataTable tr.row", TypeLocator.CSS),
+    COUNTRIES_HREF("", "a", TypeLocator.CSS),
+    COUNTRIES_ZONE("", "td:nth-child(6)", TypeLocator.CSS),
     COUNTRIE_ROWS("",".dataTable tr.row", TypeLocator.CSS),
     COUNTRIE_HREF("", "a", TypeLocator.CSS),
     COUNTRIE_ZONE("", "td:nth-child(4)", TypeLocator.CSS),
