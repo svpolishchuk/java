@@ -22,6 +22,27 @@ public class LitecartAdminLeftPanel extends TestBase {
         wait.until(titleIs("My Store"));
 
         AnotherInterpritation();
+    }
+
+
+
+        public void AnotherInterpritation() {
+            List<WebElement> items = driver.findElements(By.id("app-"));
+            //go through all item
+            for  (int i = 0; i < items.size(); i++) {
+                List<WebElement> itemsNew = driver.findElements(By.id("app-"));
+                itemsNew.get(i).click();
+                Assert.assertTrue("Header is visible", isElementPresent(driver, By.xpath(("//h1"))));
+
+                //go through all subitems
+                List<WebElement> subItems = driver.findElements((By.xpath(("//ul[@class='docs']//a"))));
+                for (int j = 0; j < subItems.size(); j++) {
+                    List<WebElement> subItemsNew = driver.findElements((By.xpath(("//ul[@class='docs']//a"))));
+                    subItemsNew.get(j).click();
+                    Assert.assertTrue("Page Header is visible", isElementPresent(driver, By.xpath(("//h1"))));
+                }
+            }
+        }
 /*
 
         driver.findElement(By.xpath("//span[.='Appearence']")).click();
@@ -158,23 +179,5 @@ public class LitecartAdminLeftPanel extends TestBase {
         driver.findElement(By.xpath("//span[1][.='vQmods']")).click();
         wait.until(titleIs("vQmods | My Store"));
 */
-    }
-
-    public void AnotherInterpritation() {
-        List<WebElement> items = driver.findElements(By.id("app-"));
-        //go through all item
-        for  (int i = 0; i < items.size(); i++) {
-            List<WebElement> itemsNew = driver.findElements(By.id("app-"));
-            itemsNew.get(i).click();
-            Assert.assertTrue("Header is visible", isElementPresent(driver, By.xpath(("//h1"))));
-
-            //go through all subitems
-            List<WebElement> subItems = driver.findElements((By.xpath(("//ul[@class='docs']//a"))));
-            for (int j = 0; j < subItems.size(); j++) {
-                List<WebElement> subItemsNew = driver.findElements((By.xpath(("//ul[@class='docs']//a"))));
-                subItemsNew.get(j).click();
-                Assert.assertTrue("Page Header is visible", isElementPresent(driver, By.xpath(("//h1"))));
-            }
-        }
     }
 }

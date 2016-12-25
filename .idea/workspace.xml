@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f25f8206-2f61-4cb0-a5b5-856f2b5273ff" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ImplementMultilayeredArchitectureProductCart.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/object/ProductPage.java" afterPath="$PROJECT_DIR$/src/test/java/object/ProductPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/LitecartAdminLeftPanel.java" afterPath="$PROJECT_DIR$/src/test/java/LitecartAdminLeftPanel.java" />
     </list>
     <ignored path="qa1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,7 +81,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImplementMultilayeredArchitectureProductCart.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ImplementMultilayeredArchitectureProductCart.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/ImplementMultilayeredArchitectureProductCart.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
@@ -92,6 +89,16 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LitecartAdminLeftPanel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/LitecartAdminLeftPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -156,16 +163,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CatalogPageObject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/object/CatalogPageObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11">
-              <caret line="45" column="35" lean-forward="true" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -199,7 +196,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/maps/LoginPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/maps/CreateAcountPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/maps/CreateAccountPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/CreateAccount.java" />
@@ -250,6 +246,7 @@
         <option value="$PROJECT_DIR$/src/test/java/object/ImplementMultilayeredArchitectureProductCart.java" />
         <option value="$PROJECT_DIR$/src/test/java/object/ProductPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/ImplementMultilayeredArchitectureProductCart.java" />
+        <option value="$PROJECT_DIR$/src/test/java/LitecartAdminLeftPanel.java" />
       </list>
     </option>
   </component>
@@ -365,32 +362,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="qa1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="object" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -986,7 +957,7 @@
       <workItem from="1482349823984" duration="7894000" />
       <workItem from="1482513289569" duration="11599000" />
       <workItem from="1482584763719" duration="20014000" />
-      <workItem from="1482662134103" duration="25240000" />
+      <workItem from="1482662134103" duration="25562000" />
     </task>
     <task id="LOCAL-00001" summary="Task10.OpensTheCorrectProductPage">
       <created>1482527430140</created>
@@ -1031,7 +1002,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163807000" />
+    <option name="totallyTimeSpent" value="164129000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -1120,12 +1091,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/LitecartAdminLeftPanel.java</url>
-          <line>23</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/object/CartPageObject.java</url>
           <line>37</line>
@@ -1342,14 +1307,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/LitecartAdminLeftPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="21" column="40" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="21" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1678,6 +1635,14 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/LitecartAdminLeftPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
