@@ -1,3 +1,5 @@
+package object;
+
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.*;
@@ -6,9 +8,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static maps.AddNewProductPage.GENERAL_CATEGORY_CHECK_BOX;
-import static maps.AddNewProductPage.*;
 import static org.testng.Assert.assertTrue;
 
 import java.util.List;
@@ -17,14 +16,15 @@ import java.util.concurrent.TimeUnit;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 /**
- * Created by polis on 29.11.2016.
+ * Created by polis on 25.12.2016.
  */
+
 public class TestBase {
 
     public WebDriver driver;
     public WebDriverWait wait;
 
- @Before
+    @Before
     public void start() {
         if(driver != null){
             return;
@@ -47,10 +47,10 @@ public class TestBase {
     }
 
     boolean areElementsPresent(WebDriver driver, By locator) {
-     if (driver.findElements(locator).size() == 1) {
-         return true;
-     }
-     else return false;
+        if (driver.findElements(locator).size() == 1) {
+            return true;
+        }
+        else return false;
     }
 
     public boolean equals(List<String> menu, List <WebElement> fromPage){
@@ -213,7 +213,7 @@ public class TestBase {
         return Boolean.parseBoolean(getAttribute(driver, locator, "checked"));
     }
 
-    public static boolean isChecked(final WebElement element, final By locator) {
+    public static boolean isChecked(final WebElement element) {
         return Boolean.parseBoolean(getAttribute(element, locator, "checked"));
     }
     public static boolean waitElementPresent(final WebDriver driver, final By locator, final WebDriverWait wait) {
@@ -233,17 +233,29 @@ public class TestBase {
             return false;
         }
     }
-    public void checkCategory(boolean check, final String name) {
-        int count = getCountElements(driver, GENERAL_CATEGORY_CHECK_BOX.by());
-        WebElement element;
-        for (int i = 0; i < count; i++) {
-            element = getElementByIndex(driver, GENERAL_CATEGORY_CHECK_BOX.by(), i);
-            if (name.equals(getAttribute(driver,GENERAL_CATEGORY_NAME.by(),"textContent").trim())) {
-                if ((isChecked(element,GENERAL_CATEGORY_CHECK_BOX.by()) && !check) || (!isChecked(element,GENERAL_CATEGORY_CHECK_BOX.by()) && check)) {
-                    click(element,GENERAL_CATEGORY_CHECK_BOX.by());
-                }
+
+    public static void typeTextWithoutClear(final WebDriver driver, final By locator, final String text) {
+        sendKeys(driver, locator, text);
+    }
+
+    public static boolean selectOptionByName(final WebDriver driver, final By selectLocator,
+                                             final By optionLocator, final String valueName) {
+        WebElement select = getElement(driver, selectLocator);
+        int countOption = getCountElements(select, optionLocator);
+        String text;
+        int i;
+        for (i = 0; i < countOption; i++) {
+            text = getAttribute(driver, (By) getElementByIndex(select, optionLocator, i), "textContent");
+
+            if (valueName.equals(text)) {
+             select.click();
+                WebElement tre = getElementByIndex(select, optionLocator, i);
+                tre.click();
+                select.click();
+                return true;
             }
         }
+        return false;
     }
 
     @After
@@ -252,3 +264,4 @@ public class TestBase {
         driver = null;
     }
 }
+
