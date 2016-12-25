@@ -3,6 +3,7 @@ import org.junit.Before;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -279,6 +280,9 @@ public class TestBase {
         }
     }
 
+    public LogEntries getBrowserLog() {
+        return driver.manage().logs().get("browser");
+    }
 
 
     @After
